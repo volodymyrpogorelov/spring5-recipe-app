@@ -8,19 +8,19 @@ public class Ingredient {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private long id;
+    private Long id;
     private BigDecimal amount;
-
-    //private UnitOfMeasure uom;
+    @OneToOne
+    private UnitOfMeasure uom;
 
     @ManyToOne
     private Recipe recipe;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

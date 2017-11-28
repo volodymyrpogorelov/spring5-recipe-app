@@ -8,12 +8,12 @@ public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String description;
-    private int prepTime;
-    private int cookTime;
-    private int servings;
+    private Integer prepTime;
+    private Integer cookTime;
+    private Integer servings;
     private String source;
     private String url;
     private String directions;
@@ -22,7 +22,10 @@ public class Recipe {
     @Lob
     private Byte[] image;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipy")
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -44,27 +47,27 @@ public class Recipe {
         this.description = description;
     }
 
-    public int getPrepTime() {
+    public Integer getPrepTime() {
         return prepTime;
     }
 
-    public void setPrepTime(int prepTime) {
+    public void setPrepTime(Integer prepTime) {
         this.prepTime = prepTime;
     }
 
-    public int getCookTime() {
+    public Integer getCookTime() {
         return cookTime;
     }
 
-    public void setCookTime(int cookTime) {
+    public void setCookTime(Integer cookTime) {
         this.cookTime = cookTime;
     }
 
-    public int getServings() {
+    public Integer getServings() {
         return servings;
     }
 
-    public void setServings(int servings) {
+    public void setServings(Integer servings) {
         this.servings = servings;
     }
 
@@ -106,5 +109,13 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }

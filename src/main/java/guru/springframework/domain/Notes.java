@@ -7,7 +7,7 @@ public class Notes {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @OneToOne
     private Recipe recipe;
@@ -15,11 +15,11 @@ public class Notes {
     @Lob
     private String recipeNotes;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
