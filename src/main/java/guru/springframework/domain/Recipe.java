@@ -116,6 +116,13 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);
+    }
+
+    public Recipe addIngredient(Ingredient ingr) {
+        ingredients.add(ingr);
+        ingr.setRecipe(this);
+        return this;
     }
 
     public Difficulty getDifficulty() {
